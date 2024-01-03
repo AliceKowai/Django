@@ -1,0 +1,10 @@
+Sempre que for criar um projeto colocar um ponto no final "django-admin startproject core ."
+dentro do Core
+    _init_.py - Faz com que o python reconheça os arquivos da arquivos como modulos.
+    asgi.py / wsgi.py - São arquivos de configuração do servidor web de hospedagem.
+    settings.py - Arquivo geral das configurações do ambiente Django. OBS: É o arquivo mais importante do projeto.
+    urls.py - Arquivo de rotas do projeto
+
+manage.py - arquivo com as funções de gereciamento de django.
+apps.py - É um arquivo de configuração dos apps
+views.py - funções do app
