@@ -5,6 +5,28 @@ dentro do Core
     settings.py - Arquivo geral das configurações do ambiente Django. OBS: É o arquivo mais importante do projeto.
     urls.py - Arquivo de rotas do projeto
 
-manage.py - arquivo com as funções de gereciamento de django.
+manage.py - arquivo cos funções de gereciamento de django.
 apps.py - É um arquivo de configuração dos apps
 views.py - funções do app
+
+PASSO A PASSO CRIANDO UM PROJETO Django
+
+1o - Criar um ambiente virtual --------- python -m virtualenv .
+2o - ativar o projeto, ativar a env----- Scripts/activate
+3o - instalar o django------------------ pip install django
+4o - Criar o projeto com o comando ----- django-admin startproject core .
+5o - Alterar no arquivo settings.py linha 106 - LANGUAGE_CODE = 'pt-br'
+                                              - TIME_ZONE = 'America/Fortaleza'
+6o - Validar se o serviço estar ok ----- python manage.py runserver 8000
+7o - Acessar o server http://localhost:8000/
+8o - Após validar o serviço, saia e execute o comando de migrações do django -------- python manage.py migrate
+9o - Para acessar o ambiente de administração do django, use - localhost:8000/admin
+10o- Agora devemos criar o usuario de acesso do ambiente de administração
+11o- Criar um app, uma partição do site use python .\manage.py startapp clientes
+12o- Apos criar o app, edite o settings.py dentro do core, nos apps instalados adicione o nome da pasta da sua aplicação
+13o- atualize as modificações --- python .\manage.py makemigrations  
+14o- para aparecer na interface django
+############### sua senha é 123456 ########################
+
+obs: não esqueça de deletar o gitignore
+obs: não esqueça de desativar os ambientes virtuais anteriores: Scripts/deactivate
