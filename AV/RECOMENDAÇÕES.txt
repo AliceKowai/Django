@@ -21,12 +21,42 @@ PASSO A PASSO CRIANDO UM PROJETO Django
 7o - Acessar o server http://localhost:8000/
 8o - Após validar o serviço, saia e execute o comando de migrações do django -------- python manage.py migrate
 9o - Para acessar o ambiente de administração do django, use - localhost:8000/admin
-10o- Agora devemos criar o usuario de acesso do ambiente de administração
-11o- Criar um app, uma partição do site use python .\manage.py startapp clientes
-12o- Apos criar o app, edite o settings.py dentro do core, nos apps instalados adicione o nome da pasta da sua aplicação
+10o- Agora devemos criar o usuario de acesso do ambiente de administração ---python .\manage.py createsuperuser
+11o- Criar um app, uma partição do site use ---- python .\manage.py startapp nome_do_app
+12o- Apos criar o app, edite o settings.py dentro do core, nos apps instalados, linha 33, adicione o nome da pasta da sua aplicação
+13o- Adicionar a rota  do meu arquivo urls.py do core -- path('', include('nome_do_app.urls'))
+14o- Conectar o arquivo urls.py do app com a view
+    from django.urls import path, -urls.py do app
+    from . import views
+    urlpatterns = [
+        path('', views.home, name='home'),
+    ]
+15o- Vá na views do home: crie a função que vai encaminhar o template quando receber um requisição
+    def home(request):
+        return render(request, 'home/index.html')
+16o- Crie a pasta templates no home, dentro crie a pasta home com o index.html
+17o- se tiver img, crie uma pasta na home com o nome de static, home/imagens e coloque as imagens na pasta
+18o- no arquivo html <img src="{% static 'home/images/logo.png' %}" /> para aparecer a imagem e no topo {% load static %}
+
 13o- atualize as modificações --- python .\manage.py makemigrations  
 14o- para aparecer na interface django
+
+criar um admin super user ---- python .\manage.py createsuperuser
 ############### sua senha é 123456 ########################
+
+****************************************************************
+imprimir dados do bd no html
+    view.py:
+        def home(request):
+        meus_produtos = Produto.objects.all()
+        context = {
+                'produtos':meus_produtos,
+        }
+        return render(request, 'home/index.html', context)
+    html:
+        {% for produto in produtos %} 
+            {{produto.nome_produto}}
+        {%endfor%}
 
 obs: não esqueça de deletar o gitignore
 obs: não esqueça de desativar os ambientes virtuais anteriores: Scripts/deactivate

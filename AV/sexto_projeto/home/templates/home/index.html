@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculdade UNES</title>
+</head>
+<body background="{% static 'home/images/fundo.png' %}">
+    <div style="width: 900px; margin: 20px auto;">
+        <img src="{% static 'home/images/logo.png' %}" /> 
+        <a href='#'style="margin-left:50%;" >Home</a> |
+        <a href='#'>Quem Somos</a> |
+        <a href='#'>Contato</a>
+    </div>
+    <div style="width: 900px; margin: 0px auto;">
+        <img src="{% static 'home/images/capa.png' %}" /> 
+    </div>
+    <div style="width: 900px; margin: 0px auto;">
+        <h2>Sobre a Universidade</h2>
+        <p>{% lorem 2 b random %}</p>
+        <p>{% lorem 2 b random %}</p>
+    </div>
+    <div style="width: 900px; margin: 0px auto;">
+        <h5 style="text-align: center;">Todos os direitos reservados</h5>
+    </div>
+</body>
+</html>
