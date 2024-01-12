@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+</head>
+<body background="{% static 'home/images/fundo.png' %}">
+    <div style="width: 900px; margin:20px auto">
+        <img width="108" src="{%static 'home/images/logo.png'%}"/>
+        <a href="#" style='margin-left:50%'>Home</a> |
+        <a href="#">Quem somos</a> |
+        <a href="#">Contato</a>
+    </div>
+        <img style="margin:-9px auto; width: 620px; display:block" src="{%static 'home/images/capa.png'%}"/>
+    <div style="width: 900px; margin:0px auto">
+        {% for livro in livros %} 
+        <div style="display: inline-block; margin: 50px; padding:10px;">
+            <div style=" padding: 5px;">
+                <img width="250" style="overflow: hidden; margin:0px 15px" src="{{livro.capa_imagem}}"/>
+            </div>
+            <h3 style="width: 250px;">Nome: {{ livro.titulo_livro }}</h3>
+            <p>Ano de publicação: {{livro.ano_publicacao}}</p>
+            <p>Categoria: {{livro.quantidade_paginas}}</p>
+            <p>Autor: {{livro.autor}}</p>
+            <p>Editora: {{livro.editora}}</p>
+            <hr>
+            <span>Preço: {{livro.preco}}</span>
+            <br>
+            <a href="#">Saiba mais</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
