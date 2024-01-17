@@ -8,3 +8,6 @@ base_statics/global/image/bootstrap-icons/
 *.pot
 *.pyc
 __pycache__
+
+#meus arquivos
+passo_passo_forms.txt
