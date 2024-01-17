@@ -39,7 +39,12 @@ PASSO A PASSO CRIANDO UM PROJETO Django
 18o- no arquivo html <img src="{% static 'home/images/logo.png' %}" /> para aparecer a imagem e no topo {% load static %}
 
 13o- atualize as modificações --- python .\manage.py makemigrations  
-14o- para aparecer na interface django
+14o- Editar o arquivo admin.py do projeto ex: Campos devem ser igual aos models
+    class ListLivros(admin.ModelAdmin):
+        list_display = ('titulo_livro', 'capa_imagem', 'ano_publicacao','quantidade_paginas','autor','editora', 'preco')
+
+    admin.site.register(Livros, ListLivros)
+    para aparecer na interface django
 
 criar um admin super user ---- python .\manage.py createsuperuser
 ############### sua senha é 123456 ########################

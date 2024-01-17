@@ -1,0 +1,27 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% bootstrap_css %}
+    <title>PRODUTO</title>
+</head>
+<body>
+    <h1>PRODUTO</h1>
+    <a href="{% url 'index'%}"></a>
+    <a href="{% url 'contato'%}"></a>
+   <h2>CadastrO DE PRODUTOS</h2>
+
+   <form action="{% url 'produto'%}" method="POST" class="form" autocomplete="off" enctype="multiparte/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+        Cadastrar
+    </button>
+    {% endbuttons %}
+    </form>
+    {% bootstrap_javascript %}
+</body>
+</html>
