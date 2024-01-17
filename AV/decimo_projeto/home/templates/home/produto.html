@@ -12,8 +12,8 @@
     <a href="{% url 'index'%}"></a>
     <a href="{% url 'contato'%}"></a>
    <h2>CadastrO DE PRODUTOS</h2>
-
-   <form action="{% url 'produto'%}" method="POST" class="form" autocomplete="off" enctype="multiparte/form-data">
+   {% bootstrap_messages %}
+   <form action="{% url 'produto'%}" method="POST" class="form" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
