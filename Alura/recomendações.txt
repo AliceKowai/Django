@@ -1,0 +1,21 @@
+Para ver todas as dependencias necessarios: O comendo cria um arquivo txt com todas as dependencias necessarias
+    pip freeze > requirements.txt 
+Não pode mandar a secret_key (Que fica no settings.py do core/setup) que todo projeto django tem para a produção, um modo de evitar isso é:
+    1o - rodar o comando pip install python-dotenv
+    2o - criar um arquivo na raiz do projeto com o nome .env
+        E nesse arquivo colar a SECRET_KEY do settings.py sem as aspas
+    3o - no settings.py:
+        from pathlib import Path, os
+        from dotenv import load_doenv
+        load_dotenv()
+        SECRET_KEY = str(os.getenv('SECRET_KEY'))
+
+Agora ao criar a pasta templates, deve-se ir no settings.py, na Propriedade templates
+    'DIRS':[os.path.join(BASE_DIR, 'templates')],
+Para usar os static é preciso primeiramente ir no settings.py, criar a linha abaixo dos static
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'setup/static')
+    ]
+    STATIC_ROOTS = os.path.join(BASE_DIR, 'static')
+Criar a pasta dentro no app com o nome static e colocar os assents e styles dentro
+Rodar o comando python manage.py collectstatic - pega todos os arquivo static e endereça eles
