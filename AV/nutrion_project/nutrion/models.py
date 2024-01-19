@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 class Food(models.Model):
     nome = models.CharField(max_length=100)
     carboidratos = models.FloatField()
@@ -7,7 +8,7 @@ class Food(models.Model):
     gorduras = models.FloatField()
     calorias = models.IntegerField()
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.nome
 
 
