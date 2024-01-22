@@ -19,3 +19,20 @@ Para usar os static é preciso primeiramente ir no settings.py, criar a linha ab
     STATIC_ROOTS = os.path.join(BASE_DIR, 'static')
 Criar a pasta dentro no app com o nome static e colocar os assents e styles dentro
 Rodar o comando python manage.py collectstatic - pega todos os arquivo static e endereça eles
+
+Considera-se uma boa pratica fazer referencia ao arquivo apps dentro do settings.py do core/setup no INSTALLED_APPS:
+    'nomedoapp.apps.nomedoappConfig',
+
+Para levar a um objeto especifico, exemplo, um card levar para o arquivo especifico.
+    1o - Dentro do for no HTML, coloque dentro do caminho da url o id 
+        {% url 'imagem' fotografia.id %}
+                imagem é a pagina que se quer renderizar
+                fotografia.id, passa o id do conteudo que deseja renderizar
+    2o - Nas urls - path('imagem/<int:foto_id>', imagem, name='imagem'),
+    3o - Nas views - def imagem(request, foto_id):
+                        fotografias = get_object_or_404(Fotografia, pk=foto_id)
+                        return render(request, 'galeria/imagem.html',{fotografia:fotografia})
+
+    Ordenar itens por um paramentro: ex: data || do mais antigo para o mais recente
+            fotografias = Fotografia.objects.order_by("-data_fotografia").filter(publicada=True)
+

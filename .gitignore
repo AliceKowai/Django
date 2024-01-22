@@ -180,3 +180,4 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/django
 #meus arquivos
 passo_passo_forms.txt
+alura_space/static/admin
