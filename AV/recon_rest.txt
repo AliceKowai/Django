@@ -1,0 +1,18 @@
+1o - Faça o ambiente virtual
+2o - activate
+3o - instale o django
+4o - install - pip install djangorestframework
+5o - criar o core do projeto
+6o - App_instaled - rest_framework
+7o - migrate e superuser
+8o - criar o App
+9o - Nas urls do core
+    path('', include('nomedoapp.urls'))
+10o- Urls do app:
+    router = routers.DefaultRouter()
+    router.register(r'doadores', DoadoresViewSet)
+11o- Criar uma pasta no app chamada api e detro da api, criar a parta __pycache__ e o arquivo __init__.py
+12o- Dentro da pasta api, criar arquivo com o nome de serializers.py e de viwsets.py
+13o- vá para models: Faça os models
+
+
