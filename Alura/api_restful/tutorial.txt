@@ -1,0 +1,13 @@
+1o preparar o ambiente e criar o projeto
+2o criar o app e apresentar
+3o criar a view
+    from django.http import JsonResponse
+
+    def alunos(request):
+        if request.method == 'GET':
+            aluno = {'id': 1, 'nome': 'Alice'}
+            return JsonResponse(aluno)
+4o Na url no core: importar as view do app e criar uma url
+    path('alunos/', alunos),
+5o Instala restframework
+6o crie os models

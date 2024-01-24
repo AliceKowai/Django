@@ -6,13 +6,44 @@
 6o - App_instaled - rest_framework
 7o - migrate e superuser
 8o - criar o App
+9o - Nos models - crie sua class com o seus fields e o str
+10o- criar pasta api no app (api)=> criar outra pasta __pycache__ 
+                            (api)=> Criar um arquivo chamado __init__.py
+                            (api)=> serializers.py
+                            (api)=> viewsets.py
+11o- No arquivo viewsets.py
+    from rest_framework import viewsets 
+    from api.serializers import BeneficiariosSerializer -- importando a classe do arquivo serializers
+    from cad_unico.models import Beneficiarios  -- importando a classe dos models
+
+    class BeneficiariosViewSet(viewsets.ModelViewSet):
+        queryset = Beneficiarios.objects.all()   -pega a classe dos models
+        serializer_class = BeneficiariosSerializer -pegar a classe do serializer
+12o- No serializers
+    from rest_framework import serializers
+    from cad_unico.models import Beneficiarios
+    #assim se tiver o all
+    class BeneficiariosSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Beneficiarios
+            fields = '__all__'
+    #assim se tiver a lista
+    class DoadoresSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta: 
+        model = Doadores
+        fields = ['nome', 'sobrenome', 'tipo_sanguineo', 'doador']
+
+
+
+
 9o - Nas urls do core
     path('', include('nomedoapp.urls'))
 10o- Urls do app:
     router = routers.DefaultRouter()
     router.register(r'doadores', DoadoresViewSet)
-11o- Criar uma pasta no app chamada api e detro da api, criar a parta __pycache__ e o arquivo __init__.py
+11o- Criar uma pasta no app chamada api e detro da api, criar a pasta __pycache__ e o arquivo __init__.py
 12o- Dentro da pasta api, criar arquivo com o nome de serializers.py e de viwsets.py
 13o- vá para models: Faça os models
 
+## No HTTP tem o metodo GET: retorna dados | POST: salva/cria dados | PUT: edita - altera dados | Delete remove dados
 
