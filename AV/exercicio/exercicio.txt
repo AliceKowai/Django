@@ -1,0 +1,5 @@
+Criar um ambiente django e restful que na pagina indez mostre as 
+reuniões a serem realizadas. Na pagina de cadastro eu posso 
+cadastrar novas reuniçies. E a minha AAPI disponibiliza minhas 
+reuniçies para serem consumidas. Titulo, descricao , local nome do
+ participante, dia e horiario.
